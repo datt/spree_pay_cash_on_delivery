@@ -12,7 +12,7 @@ module Spree
 
       def create_adjustment(payment)
         adjustment = Spree::Adjustment.create(
-            amount: Spree::CashOnDelivery::Config.charge.to_f,
+            amount: cod_charges(payment),
             order: payment.order,
             adjustable: payment.order,
             source: self,
@@ -23,7 +23,7 @@ module Spree
 
         payment.order.adjustments << adjustment
 
-        payment.update_attribute(:amount, payment.amount + Spree::CashOnDelivery::Config.charge.to_f)
+        payment.update_attribute(:amount, payment.amount + cod_charges(payment))
         payment.order.updater.update_adjustment_total
         payment.order.updater.update_order_total
         payment.order.persist_totals

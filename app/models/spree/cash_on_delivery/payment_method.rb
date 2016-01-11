@@ -30,6 +30,9 @@ module Spree
         # end
       end
 
+      def cod_charges
+        Spree::CashOnDelivery::Config.charge.to_f
+      end
 
       def authorize(*args)
         ActiveMerchant::Billing::Response.new(true, "", {}, {})

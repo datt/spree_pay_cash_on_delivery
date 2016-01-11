@@ -12,9 +12,21 @@
         <fieldset class="security no-border-bottom">
           <legend align="center"><%= Spree.t(:cash_on_delivery_config)%></legend>
               <div class="field">
-                <%= label_tag(:cash_on_delivery_charge, 'Cash on delivery charge: ') + tag(:br) %>
+                <%= label_tag(:cash_on_delivery_charge, 'Cash on delivery Pune charge: ') + tag(:br) %>
 
                 <%= text_field_tag(:cash_on_delivery_charge, @charge, onkeypress: 'return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46)') %>
+              </div>
+
+              <div class="field">
+                <%= label_tag(:cash_on_delivery_state_charge, 'Cash on delivery Maharashtra charge: ') + tag(:br) %>
+
+                <%= text_field_tag(:cash_on_delivery_state_charge, @state_charge, onkeypress: 'return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46)') %>
+              </div>
+
+              <div class="field">
+                <%= label_tag(:cash_on_delivery_country_charge, 'Cash on delivery India charge: ') + tag(:br) %>
+
+                <%= text_field_tag(:cash_on_delivery_state_charge, @country_charge, onkeypress: 'return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46)') %>
               </div>
 
         </fieldset>
